@@ -1,28 +1,16 @@
-import keys,json
+import keys,json,topics
 import requests
 import aylien
 
 def npr_search(cur_topic, numResults=5):
-    topics_dict = { 'afghanistan' : 1149,
-                    'africa' : 1126,
-                    'asia' : 1125,
-                    'economy' : 1017,
-                    'elections' : 139482413,
-                    'europe' : 1124,
-                    'israel' : 1101,
-                    'palestine' : 1101,
-                    'middle east' : 1009,
-                    'politics' : 1014,
-                    'us' : 1003,
-                    'world' : 1004
-                  }
      
     api_endpoint = 'http://api.npr.org/query'
-    payload = { 'id':topics_dict[cur_topic],
+    payload = { 'id':topics.npr_dict[cur_topic],
                 'fields':'title',
                 'output':'JSON',
                 'apiKey':keys.nprkey,
-                'numResults':numResults
+                'numResults':numResults,
+                'sort':'relevance',
               }
     #could make 'fields':['title','text'] if you wanted the text of the article
     #query string = ?id=1149&fields=title,text&output=JSON&apiKey=demo
@@ -36,6 +24,7 @@ def npr_search(cur_topic, numResults=5):
                 
                 print '---------------'
                 print 'TITLE: ' + each_story['title']['$text']
+                print 'URL: ' + each_link['$text']
                 print 'ARTICLE SUMMARY \n'
                 aylien.summarize(each_link['$text'])
                 print '---------------'
