@@ -63,3 +63,7 @@ target/
 
 
 venv/
+keys.py
+
+#ignore vim swp files
+*.swp
