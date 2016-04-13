@@ -23,12 +23,16 @@ def top_stories(section):
     #print json.dumps(json_vals,indent=1)
     num_results = json_vals['num_results']
     iterate_num = num_results
-    if num_results > 5: 
-        iterate_num = 5
+    if num_results > 10: 
+        iterate_num = 10
+    top_stories = {}
     for i in range(iterate_num):
         cur = json_vals['results'][i]
         print '----------------'
         print cur['title'] + ', ' + cur['url'] 
-if __name__=="__main__":
+        top_stories[cur['title']] = cur['url']
+    return top_stories 
+
+if __name__=="__main__": 
     article_search('israel')
     top_stories('world')

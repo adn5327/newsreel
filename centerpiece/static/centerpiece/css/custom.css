@@ -1,0 +1,58 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+body { 
+    padding-top: 30px; 
+}
+.offset-top{
+    margin-top: 50px;
+}
+.bg{
+    background-color: #808080;
+    background-image: url("../images/diagmonds-light.png");
+}
+.border-all{
+    border-right: 2px solid #808080;
+    border-left: 2px solid #808080;
+}
+.fixed-sidebar{
+    position: fixed;
+}
+.bodypad{
+    padding-left: 70px;
+}
+input[type="radio"] {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.btn-primary{
+    background-color: #F19425;
+    color: #fff;
+    border: none;
+    outline: #F19425;
+}
+.ticker{
+    background-color: #ffffff;
+    background-image: url("../images/diamond-upholstery.png");
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.acct-form{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+.form-title{
+    padding-bottom:20px;
+}
+th, td {
+    padding-right: 20px;
+    padding-bottom:20px;
+}
+tr {
+    margin-bottom: 90px;
+}
+
+.left-padded{
+    padding-left: 50px;
+}

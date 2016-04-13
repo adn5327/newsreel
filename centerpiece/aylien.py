@@ -6,8 +6,12 @@ def summarize(url, sentences_number = 5):
     
     #change this so afghanistan is not hardcoded in for now
     summary = client.Summarize({'url':url, 'sentences_number':sentences_number})
+    str = ''
     for s in summary['sentences']:
         print s + '\n'
+        str+=s
+        str+=' '
+    return str
 
 if __name__ == "__main__":
     summarize('http://en.wikipedia.org/wiki/Afghanistan')

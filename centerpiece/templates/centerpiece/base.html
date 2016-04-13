@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'centerpiece/css/bootstrap-theme.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'centerpiece/css/bootstrap.min.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'centerpiece/css/custom.css' %}"/>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+<head>
+<!--<link rel="shortcut icon" href="{% static 'centerpiece/images/favicon.ico' %}" sizes="256x256">-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'centerpiece:index' %}">Newsreel</a>
+        <ul class="nav navbar-nav">
+            <li><a href="#">US</a></li>
+            <li><a href="{% url 'centerpiece:world' %}">World</a></li>
+            <li><a href="#">Middle East</a></li>
+            <li><a href="{% url 'centerpiece:africa' %}">Africa</a></li>
+            <li><a href="#">Asia</a></li>
+            <li><a href="#">Eurpoe</a></li>
+            {% if user.is_superuser %}
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            {% endif %}
+        </ul>
+    </div>
+  </div>
+</nav>
+<script type="text/javascript">
+    console.log("Maybe?");
+    $(".nav a").on("click", function(){
+        console.log("yes");
+       $(".nav").find(".active").removeClass("active");
+       $(this).parent().addClass("active");
+    });
+    var loc = window.location.href;
+    $(".nav a").each(function() {
+      if (loc.match((this).href)) { 
+        $(this).parent().addClass("active"); 
+        }
+   });
+</script>
+</head>

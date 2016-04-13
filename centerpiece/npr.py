@@ -2,7 +2,7 @@ import keys,json,topics
 import requests
 import aylien
 
-def npr_search(cur_topic, numResults=5):
+def npr_search(cur_topic, numResults=5, listy=[]):
      
     api_endpoint = 'http://api.npr.org/query'
     payload = { 'id':topics.npr_dict[cur_topic],
@@ -26,8 +26,10 @@ def npr_search(cur_topic, numResults=5):
                 print 'TITLE: ' + each_story['title']['$text']
                 print 'URL: ' + each_link['$text']
                 print 'ARTICLE SUMMARY \n'
-                aylien.summarize(each_link['$text'])
+                str = aylien.summarize(each_link['$text'])
                 print '---------------'
+                listy.append({'title':each_story['title']['$text'],'url':each_link['$text'],'summary':str})
+    return listy 
 
 if __name__ == "__main__":
     npr_search('israel')
