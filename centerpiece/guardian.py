@@ -11,14 +11,14 @@ def guardian_search(searchTerm,psize=5,orderby='relevance',listy=[]):
     json = r.json()
     result_list = json['response']['results']
     for result in result_list:
-        print '---------------'
-        print 'TITLE: ' + result['webTitle']
-        print 'URL: ' + result['webUrl']
-        print
-        print 'ARTICLE SUMMARY \n'
+        #print '---------------'
+        #print 'TITLE: ' + result['webTitle']
+        #print 'URL: ' + result['webUrl']
+        #print
+        #print 'ARTICLE SUMMARY \n'
         str= aylien.summarize(result['webUrl'],5) 
-        print '---------------'
-        print '\n' 
+        #print '---------------'
+        #print '\n' 
         listy.append({'title':result['webTitle'],'url':result['webUrl'],'summary':str})
     return listy 
 

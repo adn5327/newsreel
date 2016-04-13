@@ -28,8 +28,8 @@ def top_stories(section):
     top_stories = {}
     for i in range(iterate_num):
         cur = json_vals['results'][i]
-        print '----------------'
-        print cur['title'] + ', ' + cur['url'] 
+        #print '----------------'
+        #print cur['title'] + ', ' + cur['url'] 
         top_stories[cur['title']] = cur['url']
     return top_stories 
 

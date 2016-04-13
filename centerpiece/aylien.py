@@ -8,7 +8,7 @@ def summarize(url, sentences_number = 5):
     summary = client.Summarize({'url':url, 'sentences_number':sentences_number})
     str = ''
     for s in summary['sentences']:
-        print s + '\n'
+        #print s + '\n'
         str+=s
         str+=' '
     return str

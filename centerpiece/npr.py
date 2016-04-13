@@ -22,12 +22,12 @@ def npr_search(cur_topic, numResults=5, listy=[]):
         for each_link in each_story['link']:
             if each_link['type'] == 'html':
                 
-                print '---------------'
-                print 'TITLE: ' + each_story['title']['$text']
-                print 'URL: ' + each_link['$text']
-                print 'ARTICLE SUMMARY \n'
+                #print '---------------'
+                #print 'TITLE: ' + each_story['title']['$text']
+                #print 'URL: ' + each_link['$text']
+                #print 'ARTICLE SUMMARY \n'
                 str = aylien.summarize(each_link['$text'])
-                print '---------------'
+                #print '---------------'
                 listy.append({'title':each_story['title']['$text'],'url':each_link['$text'],'summary':str})
     return listy 
 
