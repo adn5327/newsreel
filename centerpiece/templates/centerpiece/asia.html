@@ -1,3 +1,5 @@
+
+
 {% include "centerpiece/base.html" %}
 <body>
     <div class= "bg text-center"><h1>{{title}}</h1></div>
@@ -28,8 +30,8 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <h2> IRAN </h2>
-                {% for each_story in iran %}
+                <h2> CHINA </h2>
+                {% for each_story in china %}
                     <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
                     <h5>{{each_story.summary}}</h5>
                 {% empty %}
@@ -37,8 +39,8 @@
                 {% endfor %}
             </div>
             <div class="col-md-3">
-                <h2> ISRAEL </h2>
-                {% for each_story in israel %}
+                <h2> INDIA </h2>
+                {% for each_story in india %}
                     <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
                     <h5>{{each_story.summary}}</h5>
                 {% empty %}
@@ -46,8 +48,8 @@
                 {% endfor %}
             </div>
             <div class="col-md-3">
-                <h2> SYRIA </h2>
-                {% for each_story in syria %}
+                <h2> JAPAN </h2>
+                {% for each_story in japan %}
                     <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
                     <h5>{{each_story.summary}}</h5>
                 {% empty %}
@@ -55,8 +57,8 @@
                 {% endfor %}
             </div>
             <div class="col-md-3">
-                <h2> LIBYA </h2>
-                {% for each_story in libya %}
+                <h2> MYANMAR </h2>
+                {% for each_story in myanmar %}
                     <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
                     <h5>{{each_story.summary}}</h5>
                 {% empty %}

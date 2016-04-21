@@ -27,36 +27,27 @@
         </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                <h2> IRAN </h2>
-                {% for each_story in iran %}
+            <div class="col-md-4">
+                <h2> ELECTION 2016 </h2>
+                {% for each_story in elections %}
                     <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
                     <h5>{{each_story.summary}}</h5>
                 {% empty %}
                     <p>No stories!</p>
                 {% endfor %}
             </div>
-            <div class="col-md-3">
-                <h2> ISRAEL </h2>
-                {% for each_story in israel %}
+            <div class="col-md-4">
+                <h2> POLITICS </h2>
+                {% for each_story in politics%}
                     <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
                     <h5>{{each_story.summary}}</h5>
                 {% empty %}
                     <p>No stories!</p>
                 {% endfor %}
             </div>
-            <div class="col-md-3">
-                <h2> SYRIA </h2>
-                {% for each_story in syria %}
-                    <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
-                    <h5>{{each_story.summary}}</h5>
-                {% empty %}
-                    <p>No stories!</p>
-                {% endfor %}
-            </div>
-            <div class="col-md-3">
-                <h2> LIBYA </h2>
-                {% for each_story in libya %}
+            <div class="col-md-4">
+                <h2> HEALTHCARE </h2>
+                {% for each_story in healthcare%}
                     <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
                     <h5>{{each_story.summary}}</h5>
                 {% empty %}

@@ -9,8 +9,9 @@ npr_dict= { 'afghanistan' : 1149,
                 'palestine' : 1101,
                 'middle east' : 1009,
                 'politics' : 1014,
-                'us' : 1003,
-                'world' : 1004
+                'usa' : 1003,
+                'world' : 1004,
+                'healthcare' : 1027,
                }
 nytsections = ['home',
                 'world',

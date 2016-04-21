@@ -2,10 +2,10 @@ import keys
 import requests
 import aylien
 
-def guardian_search(searchTerm,psize=5,orderby='relevance',listy=[]):
+def guardian_search(searchTerm,numResults=5,orderby='relevance',listy=[]):
     searchTerm = searchTerm.replace(' ','%20')
     api_endpoint = 'http://content.guardianapis.com/search'
-    payload = {'page-size':psize, 'q':searchTerm, 'order-by':orderby, 'api-key':keys.guardiankey}
+    payload = {'page-size':numResults, 'q':searchTerm, 'order-by':orderby, 'api-key':keys.guardiankey}
     r = requests.get(api_endpoint,params=payload)
     #print r.url
     json = r.json()
@@ -23,4 +23,4 @@ def guardian_search(searchTerm,psize=5,orderby='relevance',listy=[]):
     return listy 
 
 if __name__=="__main__":
-    guardian_search('bernie sanders',psize=2)
+    guardian_search('bernie sanders',numResults=2)
