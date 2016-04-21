@@ -46,12 +46,15 @@ def middle_east_top(request):
     cur_list =[]
     npr.npr_search('middle east',numResults=2,listy=cur_list)
     guardian.guardian_search('middle east',numResults=2,listy=cur_list)
-    iran, israel, syria,libya = [],[],[],[]
+    iran = []
+    israel = []
+    syria = []
+    libya = [] 
     
-    iran = guardian.guardian_search('iran',numResults=2)
-    israel = npr.npr_search('israel',numResults=2)
-    syria = guardian.guardian_search('syria',numResults=2)
-    libya = guardian.guardian_search('libya',numResults=2)
+    iran = guardian.guardian_search('iran',numResults=2,listy=iran)
+    israel = npr.npr_search('israel',numResults=2, listy=israel)
+    syria = guardian.guardian_search('syria',numResults=2, listy=syria)
+    libya = guardian.guardian_search('libya',numResults=2,listy=libya)
     context = {'title':'MIDDLE EAST','top_stories':top_stories, 'stlist': cur_list, 
                 'iran':iran, 'israel':israel, 'syria':syria, 'libya':libya,}
     return render(request, 'centerpiece/middle_east.html', context)

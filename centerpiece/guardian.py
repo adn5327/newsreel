@@ -1,7 +1,9 @@
 import keys
 import requests
 import aylien
-
+from .models import Article
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import connection
 def guardian_search(searchTerm,numResults=5,orderby='relevance',listy=[]):
     searchTerm = searchTerm.replace(' ','%20')
     api_endpoint = 'http://content.guardianapis.com/search'
@@ -16,7 +18,14 @@ def guardian_search(searchTerm,numResults=5,orderby='relevance',listy=[]):
         #print 'URL: ' + result['webUrl']
         #print
         #print 'ARTICLE SUMMARY \n'
-        str= aylien.summarize(result['webUrl'],5) 
+        cur_url = result['webUrl']
+        try:
+            entry = Article.objects.get(url=cur_url)
+            str = entry.text
+        except Article.DoesNotExist:
+            str= aylien.summarize(result['webUrl'],5) 
+            entry = Article(url=cur_url, text=str)
+            entry.save()
         #print '---------------'
         #print '\n' 
         listy.append({'title':result['webTitle'],'url':result['webUrl'],'summary':str})

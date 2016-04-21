@@ -2,6 +2,9 @@ import keys,json,topics
 import requests
 import aylien
 
+from .models import Article
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import connection
 def npr_search(cur_topic, numResults=5, listy=[]):
      
     api_endpoint = 'http://api.npr.org/query'
@@ -26,7 +29,14 @@ def npr_search(cur_topic, numResults=5, listy=[]):
                 #print 'TITLE: ' + each_story['title']['$text']
                 #print 'URL: ' + each_link['$text']
                 #print 'ARTICLE SUMMARY \n'
-                str = aylien.summarize(each_link['$text'])
+                cur_url = each_link['$text']
+                try:
+                    entry = Article.objects.get(url=cur_url)
+                    str = entry.text
+                except Article.DoesNotExist:
+                    str = aylien.summarize(each_link['$text'])
+                    entry = Article(url=cur_url, text=str)
+                    entry.save()
                 #print '---------------'
                 listy.append({'title':each_story['title']['$text'],'url':each_link['$text'],'summary':str})
     return listy 
