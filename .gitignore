@@ -67,3 +67,6 @@ keys.py
 
 #ignore vim swp files
 *.swp
+
+#dont commit the database
+db.sqlite3
