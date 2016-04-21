@@ -11,12 +11,12 @@
     <div class="navbar-header">
         <a class="navbar-brand" href="{% url 'centerpiece:index' %}">Newsreel</a>
         <ul class="nav navbar-nav">
-            <li><a href="#">US</a></li>
+            <li><a href="{% url 'centerpiece:usa' %}">USA</a></li>
             <li><a href="{% url 'centerpiece:world' %}">World</a></li>
-            <li><a href="#">Middle East</a></li>
+            <li><a href="{% url 'centerpiece:middleeast' %}">Middle East</a></li>
             <li><a href="{% url 'centerpiece:africa' %}">Africa</a></li>
-            <li><a href="#">Asia</a></li>
-            <li><a href="#">Eurpoe</a></li>
+            <li><a href="{% url 'centerpiece:asia' %}">Asia</a></li>
+            <li><a href="{% url 'centerpiece:europe' %}">Europe</a></li>
             {% if user.is_superuser %}
             <li><a href="{% url 'admin:index' %}">Admin</a></li>
             {% endif %}

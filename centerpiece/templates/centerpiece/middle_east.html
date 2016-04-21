@@ -2,6 +2,7 @@
 <body>
     <div class= "bg text-center"><h1>{{title}}</h1></div>
     <div class="container-fluid offset-top">
+        <div class="row">
         <div class="col-md-3">
             <div class="text-center"><h2>BREAKING NEWS</h2></div>
             {% for story,url in top_stories.items %}
@@ -23,6 +24,27 @@
         <div class="col-md-2">
             <a href="http://www.accuweather.com/en/us/champaign-il/61820/weather-forecast/328774" class="aw-widget-legal">
             </a><div id="awcc1460517482844" class="aw-widget-current"  data-locationkey="328774" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1460517482844"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h2> IRAN </h2>
+                {% for each_story in iran %}
+                    <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
+                    <h5>{{each_story.summary}}</h5>
+                {% empty %}
+                    <p>No stories!</p>
+                {% endfor %}
+            </div>
+            <div class="col-md-3">
+                <h2> ISRAEL </h2>
+                {% for each_story in israel %}
+                    <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
+                    <h5>{{each_story.summary}}</h5>
+                {% empty %}
+                    <p>No stories!</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </body>
