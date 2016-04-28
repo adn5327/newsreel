@@ -22,23 +22,29 @@
             <div class="text-center"></div>
         </div>
         <div class="col-md-2">
-            <a href="http://www.accuweather.com/en/us/champaign-il/61820/weather-forecast/328774" class="aw-widget-legal">
-            </a><div id="awcc1460517482844" class="aw-widget-current"  data-locationkey="328774" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1460517482844"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=40.1112970&lon=-88.23238&name=Champaign"> </iframe>
         </div>
         </div>
         <div class="row">
+            </br></br>
+        </div>
             {% for key,value in sub.items %}
-                <div class="col-md-{{div}}">
-                    <h2> {{key|upper}} </h2>
-                    {% for each_story in value %}
-                        <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
-                        {{each_story.summary}}
-                    {% empty %}
-                        <p>No stories!</p>
-                    {% endfor %}
-                </div>
+            <div class="row top-line">
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" onclick="curDate('country-data-{{forloop.counter0}}', '{{key}}')"><h2> {{key|upper}} </h2></button>
+                        <p id="country-data-{{forloop.counter0}}"></p>
+                    </div>
+                        {% for each_story in value %}
+                        <div class = "col-md-5">
+                            <h4><a href={{each_story.url}}>{{each_story.title}}</a></h4>
+                            {{each_story.summary}}
+                        </div>
+                        {% empty %}
+                            <p>No stories!</p>
+                        {% endfor %}
+                    </div>
+            </div>
             {% empty %}
             {% endfor %}
-        </div>
     </div>
 </body>

@@ -1,12 +1,18 @@
 * {
     font-family: 'Lato', sans-serif;
 }
+html {
+    background-color: #808080;
+    background-image: url("../images/diagmonds-light.png");
+}
 body { 
     margin-top: 50px; 
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     line-height: 1.6;
     font-size: 14px;
+    background-color: white;
     color: #444;
 }
 h1,h2,h3,h4{
@@ -24,6 +30,12 @@ h1,h2,h3,h4{
     border-right: 2px solid #808080;
     border-left: 2px solid #808080;
 }
+.top-line{
+    margin: auto;
+    border-top: 2px solid #808080;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 .fixed-sidebar{
     position: fixed;
 }
@@ -33,23 +45,6 @@ h1,h2,h3,h4{
 input[type="radio"] {
     margin-right: 10px;
     margin-bottom: 10px;
-}
-.btn-primary{
-    background-color: #F19425;
-    color: #fff;
-    border: none;
-    outline: #F19425;
-}
-.ticker{
-    background-color: #ffffff;
-    background-image: url("../images/diamond-upholstery.png");
-    margin-left: 80px;
-    margin-right: 80px;
-}
-.acct-form{
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
 }
 .form-title{
     padding-bottom:20px;
